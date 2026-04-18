@@ -29,6 +29,7 @@ resource "google_project_service" "apis" {
     "documentai.googleapis.com",
     "artifactregistry.googleapis.com",
     "run.googleapis.com",
+    "dialogflow.googleapis.com"
   ])
   project            = "porygon-legaldoc-cuad"
   service            = each.value
