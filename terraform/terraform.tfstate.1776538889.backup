@@ -1,0 +1,728 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.8",
+  "serial": 38,
+  "lineage": "322b75a5-a8d2-b875-cda0-09b2d40fc0f3",
+  "outputs": {
+    "artifact_registry_repo": {
+      "value": "us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server",
+      "type": "string"
+    },
+    "cicd_sa_email": {
+      "value": "cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "google_artifact_registry_repository",
+      "name": "mcp_server_repo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cleanup_policies": [],
+            "cleanup_policy_dry_run": false,
+            "create_time": "2026-04-18T18:13:25.350278Z",
+            "description": "Docker images for the Porygon MCP server",
+            "docker_config": [],
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "format": "DOCKER",
+            "id": "projects/porygon-legaldoc-cuad/locations/us-central1/repositories/porygon-mcp-server",
+            "kms_key_name": "",
+            "labels": {},
+            "location": "us-central1",
+            "maven_config": [],
+            "mode": "STANDARD_REPOSITORY",
+            "name": "porygon-mcp-server",
+            "project": "porygon-legaldoc-cuad",
+            "registry_uri": "us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server",
+            "remote_repository_config": [],
+            "repository_id": "porygon-mcp-server",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null,
+            "update_time": "2026-04-18T18:35:09.736266Z",
+            "virtual_repository_config": [],
+            "vulnerability_scanning_config": [
+              {
+                "enablement_config": "",
+                "enablement_state": "SCANNING_DISABLED",
+                "enablement_state_reason": "API containerscanning.googleapis.com is not enabled."
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.apis"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_cloud_run_v2_service",
+      "name": "mcp_server",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "status": "tainted",
+          "schema_version": 0,
+          "attributes": {
+            "annotations": {},
+            "binary_authorization": [],
+            "build_config": [],
+            "client": "",
+            "client_version": "",
+            "conditions": [
+              {
+                "execution_reason": "",
+                "last_transition_time": "2026-04-18T18:13:20.165787Z",
+                "message": "Image 'us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server/mcp-server:latest' not found.",
+                "reason": "REVISION_FAILED",
+                "revision_reason": "",
+                "severity": "",
+                "state": "CONDITION_FAILED",
+                "type": "RoutesReady"
+              },
+              {
+                "execution_reason": "",
+                "last_transition_time": "2026-04-18T18:13:17.383869Z",
+                "message": "Image 'us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server/mcp-server:latest' not found.",
+                "reason": "",
+                "revision_reason": "",
+                "severity": "",
+                "state": "CONDITION_FAILED",
+                "type": "ConfigurationsReady"
+              }
+            ],
+            "create_time": "2026-04-18T18:13:17.025612Z",
+            "creator": "anamargaritapreciado@gmail.com",
+            "custom_audiences": [],
+            "default_uri_disabled": false,
+            "delete_time": "",
+            "deletion_protection": true,
+            "description": "",
+            "effective_annotations": {},
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "etag": "\"CL2Tj88GEOCdmww/cHJvamVjdHMvcG9yeWdvbi1sZWdhbGRvYy1jdWFkL2xvY2F0aW9ucy91cy1jZW50cmFsMS9zZXJ2aWNlcy9wb3J5Z29uLW1jcC1zZXJ2ZXI\"",
+            "expire_time": "",
+            "generation": "1",
+            "iap_enabled": false,
+            "id": "projects/porygon-legaldoc-cuad/locations/us-central1/services/porygon-mcp-server",
+            "ingress": "INGRESS_TRAFFIC_ALL",
+            "invoker_iam_disabled": false,
+            "labels": {},
+            "last_modifier": "anamargaritapreciado@gmail.com",
+            "latest_created_revision": "projects/porygon-legaldoc-cuad/locations/us-central1/services/porygon-mcp-server/revisions/porygon-mcp-server-00001-gkn",
+            "latest_ready_revision": "",
+            "launch_stage": "GA",
+            "location": "us-central1",
+            "multi_region_settings": [],
+            "name": "porygon-mcp-server",
+            "observed_generation": "1",
+            "project": "porygon-legaldoc-cuad",
+            "reconciling": false,
+            "scaling": [
+              {
+                "manual_instance_count": 0,
+                "max_instance_count": 20,
+                "min_instance_count": 0,
+                "scaling_mode": ""
+              }
+            ],
+            "template": [
+              {
+                "annotations": {},
+                "containers": [
+                  {
+                    "args": [],
+                    "base_image_uri": "",
+                    "build_info": [],
+                    "command": [],
+                    "depends_on": [],
+                    "env": [
+                      {
+                        "name": "PROJECT_ID",
+                        "value": "porygon-legaldoc-cuad",
+                        "value_source": []
+                      },
+                      {
+                        "name": "REGION",
+                        "value": "us-central1",
+                        "value_source": []
+                      }
+                    ],
+                    "image": "us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server/mcp-server:latest",
+                    "liveness_probe": [],
+                    "name": "",
+                    "ports": [
+                      {
+                        "container_port": 8080,
+                        "name": "http1"
+                      }
+                    ],
+                    "readiness_probe": [],
+                    "resources": [
+                      {
+                        "cpu_idle": false,
+                        "limits": {
+                          "cpu": "1",
+                          "memory": "512Mi"
+                        },
+                        "startup_cpu_boost": false
+                      }
+                    ],
+                    "startup_probe": [
+                      {
+                        "failure_threshold": 1,
+                        "grpc": [],
+                        "http_get": [],
+                        "initial_delay_seconds": 0,
+                        "period_seconds": 240,
+                        "tcp_socket": [
+                          {
+                            "port": 8080
+                          }
+                        ],
+                        "timeout_seconds": 240
+                      }
+                    ],
+                    "volume_mounts": [],
+                    "working_dir": ""
+                  }
+                ],
+                "encryption_key": "",
+                "execution_environment": "",
+                "gpu_zonal_redundancy_disabled": false,
+                "health_check_disabled": false,
+                "labels": {},
+                "max_instance_request_concurrency": 80,
+                "node_selector": [],
+                "revision": "",
+                "scaling": [
+                  {
+                    "max_instance_count": 1,
+                    "min_instance_count": 0
+                  }
+                ],
+                "service_account": "mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+                "session_affinity": false,
+                "timeout": "300s",
+                "volumes": [],
+                "vpc_access": []
+              }
+            ],
+            "terminal_condition": [
+              {
+                "execution_reason": "",
+                "last_transition_time": "2026-04-18T18:13:20.165787Z",
+                "message": "Image 'us-central1-docker.pkg.dev/porygon-legaldoc-cuad/porygon-mcp-server/mcp-server:latest' not found.",
+                "reason": "REVISION_FAILED",
+                "revision_reason": "",
+                "severity": "",
+                "state": "CONDITION_FAILED",
+                "type": "Ready"
+              }
+            ],
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null,
+            "traffic": [
+              {
+                "percent": 100,
+                "revision": "",
+                "tag": "",
+                "type": "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+              }
+            ],
+            "traffic_statuses": [],
+            "uid": "9486cdf5-9454-40df-847e-705d4d6e9772",
+            "update_time": "2026-04-18T18:13:17.025612Z",
+            "uri": "",
+            "urls": [
+              "https://porygon-mcp-server-467654417427.us-central1.run.app"
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_kms_crypto_key",
+      "name": "dlp_key",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "crypto_key_backend": "",
+            "destroy_scheduled_duration": "2592000s",
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "id": "projects/porygon-legaldoc-cuad/locations/global/keyRings/dlp-keyring/cryptoKeys/dlp-key",
+            "import_only": false,
+            "key_ring": "projects/porygon-legaldoc-cuad/locations/global/keyRings/dlp-keyring",
+            "labels": {},
+            "name": "dlp-key",
+            "primary": [
+              {
+                "name": "projects/porygon-legaldoc-cuad/locations/global/keyRings/dlp-keyring/cryptoKeys/dlp-key/cryptoKeyVersions/1",
+                "state": "ENABLED"
+              }
+            ],
+            "purpose": "ENCRYPT_DECRYPT",
+            "rotation_period": "",
+            "skip_initial_version_creation": false,
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null,
+            "version_template": [
+              {
+                "algorithm": "GOOGLE_SYMMETRIC_ENCRYPTION",
+                "protection_level": "SOFTWARE"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "google_kms_key_ring.keyring"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_kms_key_ring",
+      "name": "keyring",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "projects/porygon-legaldoc-cuad/locations/global/keyRings/dlp-keyring",
+            "location": "global",
+            "name": "dlp-keyring",
+            "project": "porygon-legaldoc-cuad",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_member",
+      "name": "cicd_sa_roles",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/artifactregistry.writer",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/artifactregistry.writer/serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/artifactregistry.writer"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.cicd_sa"
+          ]
+        },
+        {
+          "index_key": "roles/iam.serviceAccountUser",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/iam.serviceAccountUser/serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/iam.serviceAccountUser"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.cicd_sa"
+          ]
+        },
+        {
+          "index_key": "roles/run.developer",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/run.developer/serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/run.developer"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.cicd_sa"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_member",
+      "name": "mcp_server_sa_roles",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/artifactregistry.reader",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/artifactregistry.reader/serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/artifactregistry.reader"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        },
+        {
+          "index_key": "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        },
+        {
+          "index_key": "roles/documentai.apiUser",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/documentai.apiUser/serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/documentai.apiUser"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        },
+        {
+          "index_key": "roles/secretmanager.secretAccessor",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/secretmanager.secretAccessor/serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/secretmanager.secretAccessor"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        },
+        {
+          "index_key": "roles/storage.objectViewer",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwZPwAX28rs=",
+            "id": "porygon-legaldoc-cuad/roles/storage.objectViewer/serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "role": "roles/storage.objectViewer"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_service_account.mcp_server_sa"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "apis",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "artifactregistry.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/artifactregistry.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "artifactregistry.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "cloudkms.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/cloudkms.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "cloudkms.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "dlp.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/dlp.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "dlp.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "documentai.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/documentai.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "documentai.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "run.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/run.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "run.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "secretmanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/secretmanager.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "secretmanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "porygon-legaldoc-cuad/storage.googleapis.com",
+            "project": "porygon-legaldoc-cuad",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "cicd_sa",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "cicd-deployer-sa",
+            "create_ignore_already_exists": null,
+            "description": "",
+            "disabled": false,
+            "display_name": "CI/CD Deployer Service Account",
+            "email": "cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "id": "projects/porygon-legaldoc-cuad/serviceAccounts/cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "name": "projects/porygon-legaldoc-cuad/serviceAccounts/cicd-deployer-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "timeouts": null,
+            "unique_id": "104232652691478211601"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "mcp_server_sa",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "mcp-server-sa",
+            "create_ignore_already_exists": null,
+            "description": "",
+            "disabled": false,
+            "display_name": "MCP Server Service Account",
+            "email": "mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "id": "projects/porygon-legaldoc-cuad/serviceAccounts/mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "member": "serviceAccount:mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "name": "projects/porygon-legaldoc-cuad/serviceAccounts/mcp-server-sa@porygon-legaldoc-cuad.iam.gserviceaccount.com",
+            "project": "porygon-legaldoc-cuad",
+            "timeouts": null,
+            "unique_id": "110284338908206386017"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_storage_bucket",
+      "name": "bucket",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 4,
+          "attributes": {
+            "autoclass": [],
+            "cors": [],
+            "custom_placement_config": [],
+            "default_event_based_hold": false,
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "enable_object_retention": false,
+            "encryption": [],
+            "force_destroy": false,
+            "hierarchical_namespace": [
+              {
+                "enabled": false
+              }
+            ],
+            "id": "cuad-documents-porygon",
+            "ip_filter": [],
+            "labels": {},
+            "lifecycle_rule": [],
+            "location": "US-CENTRAL1",
+            "logging": [],
+            "name": "cuad-documents-porygon",
+            "project": "porygon-legaldoc-cuad",
+            "project_number": 467654417427,
+            "public_access_prevention": "inherited",
+            "requester_pays": false,
+            "retention_policy": [],
+            "rpo": null,
+            "self_link": "https://www.googleapis.com/storage/v1/b/cuad-documents-porygon",
+            "soft_delete_policy": [
+              {
+                "effective_time": "2026-04-11T20:48:19.926Z",
+                "retention_duration_seconds": 604800
+              }
+            ],
+            "storage_class": "STANDARD",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "time_created": "2026-04-11T20:48:19.926Z",
+            "timeouts": null,
+            "uniform_bucket_level_access": false,
+            "updated": "2026-04-11T20:48:19.926Z",
+            "url": "gs://cuad-documents-porygon",
+            "versioning": [],
+            "website": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsInJlYWQiOjI0MDAwMDAwMDAwMCwidXBkYXRlIjoyNDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjQifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
