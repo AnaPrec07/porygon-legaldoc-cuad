@@ -1,0 +1,9 @@
+kaggle
+google-cloud-storage
+google-cloud-dlp
+google-cloud-secret-manager
+google-cloud-documentai
+mcp
+fastmcp
+uvicorn
+geopy
